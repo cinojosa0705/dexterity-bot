@@ -1,8 +1,17 @@
 {
-  "name": "bun-ts",
-  "author": "dayblox",
-  "description": "Bun + TypeScript starter",
+  "name": "dexterity-copy-bot",
+  "author": "cinojosa0705",
+  "description": "Telegram Bot that allows you to subscribe to a Dexterity TRG",
+  "scripts": {
+    "start": "bun run src/index.ts"
+  },
   "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.64.2",
     "bun-types": "latest"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
+    "@hxronetwork/dexterity-ts": "^1.6.5",
+    "node-telegram-bot-api": "^0.64.0"
   }
 }

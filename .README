@@ -1,0 +1,32 @@
+FUNCTION[switchAccountSubscription]
+	Params:
+		- trg: string
+	Function:
+		- Changes/Initializes webhook subscription account for new account
+FUNCTION[subscribe]
+	Params: 
+		- trg: string
+	Function: 
+		- Stores new trg
+		- Handles new trg subscription on helius webhook
+		- If trg already exists:
+			- Closes all outstanding positions & copies new trgs posiitons
+		- If trg doesn't exists:
+			- Copies new trgs posiitons
+		- Manages positioning based on current portfolio & subscribed trgs' portfolio skews
+POST[/process-trade]
+	Params:
+		- product: string
+		- taker_side: "bid" or "ask"
+		- quote_size: number
+		- base_size: number
+		- maker: string
+		- taker: string
+		- price: number
+	Function:
+		- Parses trade data
+		- If taker === trg:
+			- Execute [taker_side]
+		- If maker === trg:
+			- Execute ![taker_side]
+		- Manages trade positioning based on current portfolio & subscribed trgs' portfolio skews
