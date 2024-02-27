@@ -3,7 +3,7 @@
   "author": "cinojosa0705",
   "description": "Telegram Bot that allows you to subscribe to a Dexterity TRG",
   "scripts": {
-    "start": "bun run src/index.ts"
+    "start": "bun install && run src/index.ts"
   },
   "devDependencies": {
     "@types/node-telegram-bot-api": "^0.64.2",
