@@ -9,7 +9,7 @@ import { tradeHandler } from "./api-utils/tradeHandler";
 
 const AppState = new Map<string, any>();
 
-const app = async () => {
+export const app = async () => {
   const originalFetch = fetch;
 
   global.fetch = async (...args) => {
@@ -68,5 +68,3 @@ const app = async () => {
   });
   console.log(`http://localhost:${server.port}`);
 };
-
-app();
