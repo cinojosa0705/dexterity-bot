@@ -27,8 +27,7 @@ RUN cd /usr/src/app && ls
 # Copy production dependencies and source code into the final image
 FROM base AS release
 COPY --from=install /temp/prod/node_modules /usr/src/app/node_modules
-COPY --from=prerelease /usr/src/app/index.ts /usr/src/app/
-COPY --from=prerelease /usr/src/app/package.json /usr/src/app/
+COPY --from=prerelease /usr/src/app/ /usr/src/app/
 
 RUN cd /usr/src/app && ls
 
