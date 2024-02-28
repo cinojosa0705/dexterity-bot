@@ -18,12 +18,6 @@ FROM base AS prerelease
 COPY --from=install /temp/dev/node_modules /usr/src/app/node_modules
 COPY . /usr/src/app
 
-# Optional: Run tests and build your application
-# Set the environment variable to production for this stage
-ENV NODE_ENV=production
-RUN bun test
-RUN bun run build
-
 # Copy production dependencies and source code into the final image
 FROM base AS release
 COPY --from=install /temp/prod/node_modules /usr/src/app/node_modules
