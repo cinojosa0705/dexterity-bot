@@ -1,5 +1,5 @@
 export async function newTraderSubHandler(trader: string) {
-  const url = `http://localhost:3000//new-subscription?trg=${trader}`;
+  const url = `https://dexterity-bot.onrender.com/new-subscription?trg=${trader}`;
 
   try {
     const response = await fetch(url, {
@@ -14,7 +14,7 @@ export async function newTraderSubHandler(trader: string) {
     }
 
     const data = await response.json();
-    return data
+    return data;
   } catch (error) {
     console.error("Error making request:", error);
   }

@@ -59,5 +59,5 @@ export const app = async () => {
       return response;
     },
   });
-  console.log(`http://localhost:${server.port}`);
+  console.log(`${server.url}`);
 };

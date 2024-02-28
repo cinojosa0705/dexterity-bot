@@ -1,5 +1,5 @@
 export async function cancelTraderSub() {
-  const url = `http://localhost:3000/cancel-subscription`;
+  const url = `https://dexterity-bot.onrender.com/cancel-subscription`;
 
   try {
     const response = await fetch(url, {
