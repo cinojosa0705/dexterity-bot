@@ -2,7 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import { cancelTraderSub } from "./bot-utils/cancelTraderSubHandler";
 import { newTraderSubHandler } from "./bot-utils/newTraderSubHandler";
 
-const token = "6885529562:AAEKy2Yjy5Gd-70Qv65dDsnkn-Q8LXLnOgg";
+const token = "6870495216:AAFeT6_KlwtZh0PjUWrzgCIM3MRhuCHDYRg";
 const chatId = 1626455386;
 
 const bot = new TelegramBot(token, { polling: true });
