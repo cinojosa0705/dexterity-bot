@@ -8,15 +8,21 @@ RUN mkdir -p /temp/dev
 COPY package.json bun.lockb /temp/dev/
 RUN cd /temp/dev && bun install --frozen-lockfile
 
+RUN cd /usr/src/app && ls
+
 # Install production dependencies only
 RUN mkdir -p /temp/prod
 COPY package.json bun.lockb /temp/prod/
 RUN cd /temp/prod && bun install --frozen-lockfile --production
 
+RUN cd /usr/src/app && ls
+
 # Copy node_modules from the temporary directory, then copy all project files into the image
 FROM base AS prerelease
 COPY --from=install /temp/dev/node_modules /usr/src/app/node_modules
 COPY . /usr/src/app
+
+RUN cd /usr/src/app && ls
 
 # Copy production dependencies and source code into the final image
 FROM base AS release
