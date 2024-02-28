@@ -65,7 +65,7 @@ bot.onText(/\/cancelcopy/, async (msg, match) => {
 });
 
 bot.onText(/\/start/, (msg) => {
-  const welcomeMessage = `Welcome to the Trade Copy Bot! 🤖 Here's how you can get started:
+  const welcomeMessage = `Welcome to the Trade Copy Bot! Here's how you can get started:
   
   - Use /help to view all the commands.
   - Use /newcopy {trg-pubkey} to subscribe to a new trader.
