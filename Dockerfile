@@ -27,4 +27,4 @@ COPY --from=prerelease /usr/src/app/package.json /usr/src/app/
 # Set the user to 'bun', expose the application's port, and define the entry point
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT ["bun", "run", "src/index.ts"]
+ENTRYPOINT ["bun", "run", "/usr/src/app/src/index.ts"]
