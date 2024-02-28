@@ -10,13 +10,6 @@ import { tradeHandler } from "./api-utils/tradeHandler";
 const AppState = new Map<string, any>();
 
 export const app = async () => {
-  const originalFetch = fetch;
-
-  global.fetch = async (...args) => {
-    console.log("Fetch request:", args[0]);
-    return originalFetch.apply(this, args);
-  };
-
   const keypair = Keypair.fromSecretKey(
     new Uint8Array([
       96, 142, 97, 25, 159, 50, 147, 35, 172, 19, 212, 221, 34, 139, 116, 27,
@@ -29,7 +22,7 @@ export const app = async () => {
 
   const HeliusApiKey = "9b1d1867-7ae5-474d-9359-d2f0916ee6dd";
   const rpc = `https://devnet-rpc.shyft.to?api_key=JUvCRqsUep-u4yk0`;
-  
+
   const manifest = await dexterity.getManifest(rpc, true, wallet);
 
   const trg = new PublicKey("3fFWfA1LQ6yBJ9v8xwQXF3tjj6qp1715Jt8BxBDJexAi");
