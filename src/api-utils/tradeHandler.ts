@@ -23,6 +23,12 @@ export const tradeHandler = async (
 
   const body = (await req.json()) as Trade;
 
+  if (
+    body.maker != CopiedTrader.traderRiskGroup.toBase58() &&
+    body.taker != CopiedTrader.traderRiskGroup.toBase58()
+  )
+    return;
+
   const positioningRatio = AppState.get("positioningRatio");
 
   const sizeFractional = dexterity.Fractional.New(
