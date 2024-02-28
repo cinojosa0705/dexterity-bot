@@ -24,6 +24,8 @@ COPY --from=install /temp/prod/node_modules /usr/src/app/node_modules
 COPY --from=prerelease /usr/src/app/index.ts /usr/src/app/
 COPY --from=prerelease /usr/src/app/package.json /usr/src/app/
 
+RUN cd /usr/src/app && ls
+
 # Set the user to 'bun', expose the application's port, and define the entry point
 USER bun
 EXPOSE 3000/tcp
