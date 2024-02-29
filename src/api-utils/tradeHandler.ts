@@ -27,7 +27,18 @@ export const tradeHandler = async (
     body.maker != CopiedTrader.traderRiskGroup.toBase58() &&
     body.taker != CopiedTrader.traderRiskGroup.toBase58()
   )
-    return;
+    return new Response(
+      JSON.stringify({
+        error: "Trade does not have CopiedTrader in it",
+        maker: body.maker,
+        taker: body.taker,
+        copiedTrader: CopiedTrader.traderRiskGroup.toBase58(),
+        isThereCopiedTrader:
+          body.maker != CopiedTrader.traderRiskGroup.toBase58() &&
+          body.taker != CopiedTrader.traderRiskGroup.toBase58(),
+      }),
+      { status: 590 }
+    );
 
   const positioningRatio = AppState.get("positioningRatio");
 

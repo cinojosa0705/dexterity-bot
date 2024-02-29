@@ -32,7 +32,9 @@ export const app = async () => {
     async fetch(req, server) {
       const url = new URL(req.url);
       const { pathname, searchParams } = url;
-      let response = new Response(JSON.stringify({ status: 200 }));
+      let response: Response | undefined = new Response(
+        JSON.stringify({ status: 200 })
+      );
       switch (pathname) {
         case "/process-trade":
           response = await tradeHandler(
@@ -56,8 +58,9 @@ export const app = async () => {
         default:
           break;
       }
+      if (!response) return new Response(JSON.stringify({ status: 200 }));
       return response;
     },
   });
-  console.log(`${server.url}`);
+  console.log(`http://${server.hostname}:${server.port}`);
 };

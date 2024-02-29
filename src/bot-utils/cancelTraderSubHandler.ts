@@ -14,7 +14,7 @@ export async function cancelTraderSub() {
     }
 
     const data = await response.json();
-    return data
+    return data;
   } catch (error) {
     console.error("Error making request:", error);
   }

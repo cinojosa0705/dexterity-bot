@@ -17,13 +17,17 @@ export const handleNewSubscription = async (
   const copiedTrader = new Trader(manifest, new PublicKey(newTrg), true);
   AppState.set("copiedTrader", copiedTrader);
 
-  const signature = await accountPositioningHandler(AppState, copiedTrader, trader);
+  const signature = await accountPositioningHandler(
+    AppState,
+    copiedTrader,
+    trader
+  );
 
   return new Response(
     JSON.stringify({
       ok: "Successfully set new Trader to Copy",
       newTrg,
-      signature
+      signature,
     }),
     { status: 200 }
   );
